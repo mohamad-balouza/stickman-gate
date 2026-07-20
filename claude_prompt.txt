@@ -1,0 +1,15 @@
+Build a 2D pixel-art stickman platformer in Godot using the godot-ai MCP at localhost:8000/mcp.
+
+Requirements:
+- Stickmen/stickfigures for player and enemies with animations (idle, run, jump, shoot, death)
+- Pixel art assets — generate them procedurally via godot-ai MCP tools
+- Polished movement: acceleration, deceleration, variable jump height, coyote time (~0.1s), jump buffering (~0.1s)
+- Enemies that patrol/chase and can be shot
+- Shooting with optimized bullets, good fire rate, bullet speed, hit feedback
+- 1 weapon upgrade pickup using composition architecture (swap WeaponConfig resource)
+- Polished UI: health bar, weapon indicator, score, game over/win screens
+- 1 well-crafted level with platforms, gaps, spikes, enemies
+- Test by running the game via godot-ai MCP, check for errors, take screenshots
+- Answer any questions yourself — just make reasonable decisions and proceed
+
+The project already has assets generated (player_sheet.png, enemy_sheet.png, tiles.png, etc) and project settings configured (640x360 viewport, nearest filter, input map with move_left/right/jump/shoot). Build the scenes and scripts now step by step.

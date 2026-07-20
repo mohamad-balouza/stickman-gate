@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ukpgpegntcqk"]
+
+[ext_resource type="Script" uid="uid://da25mm3ifacjn" path="res://scripts/boss_projectile.gd" id="1_h0i0c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ienu"]
+radius = 5.0
+
+[node name="BossProjectile" type="Area2D" unique_id=893028669]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_h0i0c")
+knockback = 200.0
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=300974044]
+
+[node name="Shape" type="CollisionShape2D" parent="." unique_id=1009517539]
+shape = SubResource("CircleShape2D_6ienu")

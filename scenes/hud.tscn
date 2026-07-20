@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://e7fh7tkmp53m"]
+
+[ext_resource type="Script" uid="uid://cvftehmguo3am" path="res://scripts/hud.gd" id="1_5ysmq"]
+[ext_resource type="Theme" uid="uid://cmvjeddm50njt" path="res://resources/ui_theme.tres" id="2_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://dc4gd6w5xq1cj" path="res://assets/heart_full.png" id="3_uo2fv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ysmq"]
+bg_color = Color(0.08, 0.09, 0.15, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.58, 0.69, 0.76, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fi6k"]
+bg_color = Color(0.85, 0.2, 0.22, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=1636568074]
+process_mode = 3
+script = ExtResource("1_5ysmq")
+
+[node name="Root" type="Control" parent="." unique_id=1217591469]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource("2_6fi6k")
+
+[node name="Hearts" type="HBoxContainer" parent="Root" unique_id=216174919]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 8.0
+
+[node name="H1" type="TextureRect" parent="Root/Hearts" unique_id=963837715]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("3_uo2fv")
+expand_mode = 1
+
+[node name="H2" type="TextureRect" parent="Root/Hearts" unique_id=1710237027]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("3_uo2fv")
+expand_mode = 1
+
+[node name="H3" type="TextureRect" parent="Root/Hearts" unique_id=1462003039]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("3_uo2fv")
+expand_mode = 1
+
+[node name="InfoBox" type="VBoxContainer" parent="Root" unique_id=690755700]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = 8.0
+offset_right = -8.0
+grow_horizontal = 0
+
+[node name="KillsLabel" type="Label" parent="Root/InfoBox" unique_id=489473196]
+layout_mode = 2
+text = "KILLS 0/5"
+horizontal_alignment = 2
+
+[node name="WeaponLabel" type="Label" parent="Root/InfoBox" unique_id=1661183131]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8235294, 0.24313726, 1)
+text = "PISTOL"
+horizontal_alignment = 2
+
+[node name="Toast" type="Label" parent="Root" unique_id=573625365]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 56.0
+offset_right = 120.0
+offset_bottom = 80.0
+pivot_offset = Vector2(120, 12)
+theme_override_colors/font_color = Color(1, 0.8235294, 0.24313726, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+
+[node name="StartPanel" type="CenterContainer" parent="Root" unique_id=1507207836]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="PanelContainer" parent="Root/StartPanel" unique_id=1954392710]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Root/StartPanel/Panel" unique_id=2117940111]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Root/StartPanel/Panel/VBox" unique_id=789926099]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "STICK 'EM UP"
+horizontal_alignment = 1
+
+[node name="Sub" type="Label" parent="Root/StartPanel/Panel/VBox" unique_id=220281187]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68235296, 0.72156864, 0.76862746, 1)
+text = "A/D MOVE   SPACE JUMP   J OR CLICK SHOOT"
+horizontal_alignment = 1
+
+[node name="Prompt" type="Label" parent="Root/StartPanel/Panel/VBox" unique_id=194594429]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48235294, 0.84705883, 0.56078434, 1)
+text = "PRESS SPACE TO START"
+horizontal_alignment = 1
+
+[node name="DeathPanel" type="CenterContainer" parent="Root" unique_id=1217336714]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="PanelContainer" parent="Root/DeathPanel" unique_id=1686595132]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Root/DeathPanel/Panel" unique_id=281666546]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Root/DeathPanel/Panel/VBox" unique_id=640299298]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.41960785, 0.41960785, 1)
+theme_override_font_sizes/font_size = 18
+text = "YOU DIED"
+horizontal_alignment = 1
+
+[node name="Prompt" type="Label" parent="Root/DeathPanel/Panel/VBox" unique_id=275706092]
+layout_mode = 2
+text = "PRESS SPACE TO RETRY"
+horizontal_alignment = 1
+
+[node name="WinPanel" type="CenterContainer" parent="Root" unique_id=1278534946]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="PanelContainer" parent="Root/WinPanel" unique_id=563803675]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Root/WinPanel/Panel" unique_id=241339990]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Root/WinPanel/Panel/VBox" unique_id=473380492]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48235294, 0.84705883, 0.56078434, 1)
+theme_override_font_sizes/font_size = 18
+text = "LEVEL CLEAR!"
+horizontal_alignment = 1
+
+[node name="KillsResult" type="Label" parent="Root/WinPanel/Panel/VBox" unique_id=807663700]
+layout_mode = 2
+text = "STICKMEN DEFEATED: 0/5"
+horizontal_alignment = 1
+
+[node name="Prompt" type="Label" parent="Root/WinPanel/Panel/VBox" unique_id=1410377918]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68235296, 0.72156864, 0.76862746, 1)
+text = "PRESS SPACE TO RESTART"
+horizontal_alignment = 1
+
+[node name="BossBox" type="VBoxContainer" parent="Root" unique_id=844123070]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -34.0
+offset_right = 110.0
+offset_bottom = -8.0
+theme_override_constants/separation = 2
+
+[node name="BossName" type="Label" parent="Root/BossBox" unique_id=58120092]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.41960785, 0.41960785, 1)
+text = "THE AMALGAM"
+horizontal_alignment = 1
+
+[node name="Bar" type="ProgressBar" parent="Root/BossBox" unique_id=1086498885]
+custom_minimum_size = Vector2(220, 8)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5ysmq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6fi6k")
+max_value = 60.0
+value = 60.0
+show_percentage = false
+
+[node name="WinSfx" type="AudioStreamPlayer" parent="." unique_id=342037480]
+
+[node name="DieSfx" type="AudioStreamPlayer" parent="." unique_id=1943895755]
+
+[node name="GateSfx" type="AudioStreamPlayer" parent="." unique_id=754028191]

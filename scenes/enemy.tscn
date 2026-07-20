@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c71wrqh0gnjc5"]
+
+[ext_resource type="Script" uid="uid://xi4uuw0humqs" path="res://scripts/enemy.gd" id="1_5uy6h"]
+[ext_resource type="Script" uid="uid://bc4v3nisxdqde" path="res://scripts/components/health_component.gd" id="2_c4w8v"]
+[ext_resource type="Script" uid="uid://cs0fu5rlq1iom" path="res://scripts/components/hurtbox.gd" id="3_xwavj"]
+[ext_resource type="Script" uid="uid://br31gt8cnv002" path="res://scripts/components/hitbox.gd" id="4_nenq2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_md484"]
+radius = 5.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipns3"]
+size = Vector2(10, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qclf"]
+size = Vector2(8, 20)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=548012917 groups=["enemies"]]
+collision_layer = 4
+script = ExtResource("1_5uy6h")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1743746337]
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=9853377]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_md484")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1879610273]
+script = ExtResource("2_c4w8v")
+max_hp = 2
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1300257098]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_xwavj")
+
+[node name="HurtShape" type="CollisionShape2D" parent="Hurtbox" unique_id=444837701]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_ipns3")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1475665256]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("4_nenq2")
+
+[node name="HitShape" type="CollisionShape2D" parent="Hitbox" unique_id=544782594]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_8qclf")
+
+[node name="WallRay" type="RayCast2D" parent="." unique_id=2094451897]
+position = Vector2(0, 2)
+target_position = Vector2(-8, 0)
+
+[node name="FloorRay" type="RayCast2D" parent="." unique_id=1556155677]
+target_position = Vector2(0, 20)
+
+[node name="DeathParticles" type="CPUParticles2D" parent="." unique_id=939402726]
+emitting = false
+
+[node name="HitSfx" type="AudioStreamPlayer2D" parent="." unique_id=1271452332]
+
+[node name="DieSfx" type="AudioStreamPlayer2D" parent="." unique_id=591335660]

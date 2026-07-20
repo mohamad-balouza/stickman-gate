@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://ba2cqdqmopxac"]
+
+[ext_resource type="Script" uid="uid://pid2ou28sumb" path="res://scripts/boss.gd" id="1_qnbj4"]
+[ext_resource type="Script" uid="uid://bc4v3nisxdqde" path="res://scripts/components/health_component.gd" id="2_r3bxh"]
+[ext_resource type="Script" uid="uid://cs0fu5rlq1iom" path="res://scripts/components/hurtbox.gd" id="3_wqpjq"]
+[ext_resource type="Script" uid="uid://br31gt8cnv002" path="res://scripts/components/hitbox.gd" id="4_2cdgk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsl3t"]
+size = Vector2(44, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2avx2"]
+size = Vector2(54, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5f346"]
+size = Vector2(44, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0onds"]
+size = Vector2(96, 16)
+
+[node name="Boss" type="CharacterBody2D" unique_id=2111547323]
+collision_layer = 4
+script = ExtResource("1_qnbj4")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1866393866]
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=712168748]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_qsl3t")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1059969063]
+script = ExtResource("2_r3bxh")
+max_hp = 60
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1582454169]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_wqpjq")
+
+[node name="HurtShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1947729890]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_2avx2")
+
+[node name="ContactHitbox" type="Area2D" parent="." unique_id=1797773707]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("4_2cdgk")
+knockback = 240.0
+
+[node name="HitShape" type="CollisionShape2D" parent="ContactHitbox" unique_id=148653025]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_5f346")
+
+[node name="WhipHitbox" type="Area2D" parent="." unique_id=745040704]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("4_2cdgk")
+knockback = 260.0
+
+[node name="Shape" type="CollisionShape2D" parent="WhipHitbox" unique_id=2044542631]
+shape = SubResource("RectangleShape2D_0onds")
+
+[node name="WhipArm" type="Line2D" parent="." unique_id=1622574248]
+visible = false
+width = 5.0
+
+[node name="SlamDust" type="CPUParticles2D" parent="." unique_id=127623082]
+
+[node name="ChargeDust" type="CPUParticles2D" parent="." unique_id=478226649]
+
+[node name="SummonSwirl" type="CPUParticles2D" parent="." unique_id=1888250678]
+
+[node name="StunStars" type="CPUParticles2D" parent="." unique_id=670528960]
+
+[node name="DeathBurst" type="CPUParticles2D" parent="." unique_id=481978143]
+
+[node name="RoarSfx" type="AudioStreamPlayer2D" parent="." unique_id=1841054161]
+
+[node name="SlamSfx" type="AudioStreamPlayer2D" parent="." unique_id=912750066]
+
+[node name="WhipSfx" type="AudioStreamPlayer2D" parent="." unique_id=421394177]
+
+[node name="SummonSfx" type="AudioStreamPlayer2D" parent="." unique_id=2089846041]
+
+[node name="ChargeSfx" type="AudioStreamPlayer2D" parent="." unique_id=824224393]
+
+[node name="ShootSfx" type="AudioStreamPlayer2D" parent="." unique_id=5852545]
+
+[node name="StunSfx" type="AudioStreamPlayer2D" parent="." unique_id=1510987098]
+
+[node name="HitSfx" type="AudioStreamPlayer2D" parent="." unique_id=398384118]
+
+[node name="DieSfx" type="AudioStreamPlayer2D" parent="." unique_id=1997261868]
